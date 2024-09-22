@@ -7,56 +7,54 @@
     <link rel="stylesheet" type="text/css" href="laba1.css">
 </head>
 <body>
-    <header class="header">
+    <header>
         <p>Hello, Header!</p>
     </header>
 
-    <section class="content">
+    <div class="content">
         <h1>Hello, content!</h1>
-        <div class="text-content">
-            <!-- Округленный квадратик -->
-            <div class="rounded-square"></div>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-        </div>
-
+        <div class="rectangle" style="float:left;"></div>
+        <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+        </p>
         <!-- Центрированная красная ссылка -->
-        <p class="centered-link"><a href="http://www.csd.tsu.ru" target="_blank">www.csd.tsu.ru</a></p>
+        <a href="http://www.csd.tsu.ru" class="link">www.csd.tsu.ru</a>
 
-        <h2><span style="color: red;">Here</span> is the list:</h2>
-        <ul>
+        <h2><span style="color:red;">Here</span> is the list:</h2>
+        <ul style="list-style-type:disc;">
             <li>Value 1</li>
-            <li style="color: deepskyblue; letter-spacing: 5px;">Value 2</li>
+            <li class="value2" style="color: deepskyblue; letter-spacing: 5px;">Value 2</li>
             <li>Value 3</li>
         </ul>
+        <!-- Измененная сетка с цифрами -->
+        <table>
+            <tr>
+                <td rowspan="2" style="background-color:green;">1</td>
+                <td>2</td>
+                <td>3</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td colspan="2" style="background-color:red;">7</td>
+            </tr>
+        </table>
 
-        <h2>Here are some visual styles:</h2>
-        <div class="visual-styles-and-grid-wrapper">
-            <div class="visual-styles">
-                <p class="italic-text"><i>Italic</i></p>
-                <p><b>Bold</b></p>
-                <p><u>UnderLined</u></p>
-                <p><span style="text-decoration: line-through;">Line through</span></p>
-            </div>
+        <section class="visualstyles">
+            <h3>Here are some visual styles:</h3>
+            <p><em>Italic</em></p>
+            <p><strong>Bold</strong></p>
+            <p><u>UnderLined</u></p>
+            <p><del style="line-height:200%;">Line through</del></p>
+            <!-- джипег с лайком -->
+            <img src="images.png" alt="Like" style="float:right;">
+        </section>
+    </div>
 
-            <!-- Сетка с указанными стилями -->
-            <div class="grid-and-like">
-                <div class="grid">
-                    <div class="cell cell-1">1</div>
-                    <div class="cell cell-2">2</div>
-                    <div class="cell cell-3">3</div>
-                    <div class="cell cell-4">4</div>
-                    <div class="cell cell-5">5</div>
-                    <div class="cell cell-6">6</div>
-                    <div class="cell cell-7">7</div>
-                </div>
-                <div class="like-icon">
-                    <img src="images.png" alt="Like">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
+    <footer>
         <p>Hello, Footer!</p>
     </footer>
 </body>

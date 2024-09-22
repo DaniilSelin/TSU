@@ -1,172 +1,102 @@
 body {
-    margin: 0;
-    padding: 0;
     font-family: Arial, sans-serif;
-    background-color: #e5e5e5;
+    text-align: left;
 }
 
-.header, .footer {
+header {
     background-color: green;
     color: white;
+    width: 100%;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 10px 0;
+    top: 0;
+    left: 0;
+    height: 25px;
+    font: normal 14px courier;
+}
+
+footer {
+    background-color: green;
+    color: white;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 25px;
+    left: 0;
+    font: normal 12px verdana;
 }
 
 .content {
+    width: 60%;
     background-color: blue;
     color: white;
-    padding: 20px;
-    max-width: 800px;
+    padding: 10px 20px 1px 20px;
+    font: normal 14px arial, verdana;
     margin: 0 auto;
 }
 
-.text-content {
-    overflow: hidden; /* Обеспечивает правильное обтекание текстом */
+.content h1, .content h2 {
+    word-spacing: 15px;
+    line-height: 1.5;
 }
 
-.rounded-square {
-    width: 100px;
-    height: 100px;
-    background-color: transparent; /* Прозрачный фон */
-    border-radius: 20px 0 20px 0;/* Противоположные стороны прямые и округленные */
-    border: 4px solid white; /* Толстая линия обводки */
-    float: left; /* Обтекание текста слева */
-    margin-right: 20px; /* Отступ справа для текста */
-    margin-bottom: 10px; /* Отступ снизу для текста */
+ul {
+    list-style-type: disc;
 }
 
-.text-content p {
-    margin: 0; /* Убираем стандартные отступы абзацев */
+ul li {
+    text-align: left;
+    margin: 5px 0;
 }
 
-.centered-link {
-    text-align: center;
-    margin: 20px 0;
+.rectangle {
+    width: 80px;
+    height: 80px;
+    background-color: blue;
+    border: 5px solid white;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin: 0 16px 20px 0;
+    float: left; /* Обтекаем текстом */
 }
 
-.centered-link a {
+.link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: red;
-    font-weight: bold;
 }
 
-ul > li {
-    color: white;
+.value2 {
+    color: #00f5ff;
+    letter-spacing: 4px;
 }
 
-.highlighted {
-    color: deepskyblue;
-    font-weight: bold;
-    font-size: 1.2em;
+img {
+    margin-top: -45px; /* двигаем джипег */
 }
 
-.visual-styles-and-grid-wrapper {
-    display: flex;
-    justify-content: space-between;
+.visualstyles {
+    line-height: 75%;
     align-items: flex-start;
-    margin-top: 20px;
 }
 
-.visual-styles {
-    max-width: 60%; /* Ограничиваем ширину текста */
+table {
+    border: solid 1px silver;
+    float: right;
 }
 
-.italic-text {
-    margin-top: 5px; /* Уменьшенный отступ между заголовком и текстом */
-}
-
-.spaced-line-through {
-    margin-top: 70px; /* Увеличиваем отступ */
-}
-
-.grid-and-like {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    margin-right: 20px; /* Небольшой отступ от правого края страницы */
-    margin-top: -20px; /* Поднимаем сетку немного выше */
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: 50px 50px 50px;
-    grid-template-rows: 50px 50px 50px;
-    gap: 5px;
-}
-
-button.cell {
-    background-color: red;
-    color: white;
-    font-size: 18px;
-    border-radius: 5px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end; /* Центрирование по низу кнопки */
-    border: none;
-    padding: 5px;
-}
-
-.cell-1 {
-    grid-column: 1;
-    grid-row: 1 / 3;
-    background-color: green;
-}
-
-.cell-2, .cell-3, .cell-4, .cell-5 {
-    background-color: transparent;
-}
-
-.cell-2 {
-    grid-column: 2;
-    grid-row: 1;
-}
-
-.cell-3 {
-    grid-column: 3;
-    grid-row: 1;
-}
-
-.cell-4 {
-    grid-column: 2;
-    grid-row: 2;
-}
-
-.cell-5 {
-    grid-column: 3;
-    grid-row: 2;
-}
-
-.cell-6 {
-    grid-column: 1;
-    grid-row: 3;
-    background-color: transparent;
-}
-
-.cell-7 {
-    grid-column: 2 / 4;
-    grid-row: 3;
-    background-color: red;
-}
-
-.cell-1, .cell-2, .cell-3, .cell-4, .cell-5, .cell-6, .cell-7 {
-    border: 1px solid white; /* Тонкая белая обводка */
-    padding: 0; /* Убираем отступы внутри */
-}
-
-.grid {
-    border: 1px solid white; /* Тонкая обводка вокруг всей сетки */
-    padding: 5px; /* Уменьшаем отступ внутри сетки */
-}
-
-.cell {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-top: 10px; /* Увеличиваем отступ сверху */
-}
-
-
-.like-icon img {
+td {
     width: 30px;
-    height: 30px;
-    margin-top: 10px; /* Отступ между сеткой и иконкой */
+    height: 23px;
+    border: solid 1px silver;
+    font: bold 12px verdana, arial;
+    text-align: center;
+    vertical-align: bottom;
 }
