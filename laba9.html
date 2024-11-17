@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>lba9</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        #calculator {
+            width: 300px;
+            border: 3px solid #6dacd5;
+            padding: 15px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 10px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        #text {
+            grid-column: span 4;
+            height: 40px;
+            text-align: right;
+            font-size: 24px;
+            padding: 5px;
+            box-sizing: border-box;
+            border: 1px solid black;
+            background-color: #fff;
+        }
+
+        button {
+            font-size: 18px;
+            background: linear-gradient(to bottom, #ffffff, #dddddd);
+            border: 2px solid #ccc;
+            text-align: center;
+            height: 50px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        button:active {
+            border-color: #6dacd5;
+        }
+
+        #zero {
+            grid-column: span 2;
+        }
+
+        #equal {
+            grid-column: span 2;
+        }
+
+        #backspace {
+            background-color: #ffdfdf;
+        }
+
+        #clear {
+            background-color: #ffdfdf;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator">
+        <input id="text" type="text" value="0" readonly />
+        <button onclick="Clear()" id="clear">C</button>
+        <button onclick="backspace()" id="backspace">&lt;-</button>
+        <button onclick="divide()">/</button>
+        <button onclick="multiply()">*</button>
+        <button onclick="seven()">7</button>
+        <button onclick="eight()">8</button>
+        <button onclick="nine()">9</button>
+        <button onclick="minus()">-</button>
+        <button onclick="four()">4</button>
+        <button onclick="five()">5</button>
+        <button onclick="six()">6</button>
+        <button onclick="plus()">+</button>
+        <button onclick="one()">1</button>
+        <button onclick="two()">2</button>
+        <button onclick="three()">3</button>
+        <button onclick="dote()">.</button>
+        <button id="zero" onclick="zero()">0</button>
+        <button id="equal" onclick="equal()">=</button>
+    </div>
+
+    <script>
+        function addNum(num) {
+            const textField = document.getElementById('text');
+            if (textField.value === "0" || textField.value === "INFINITY") {
+                textField.value = num;
+            } else {
+                textField.value += num;
+            }
+        }
+
+        function addOper(op) {
+            const textField = document.getElementById('text');
+            const lastChar = textField.value.slice(-1);
+            if (!isNaN(lastChar) || lastChar === ".") {
+                textField.value += ` ${op} `;
+            }
+        }
+
+        function zero() { addNum("0"); }
+        function one() { addNum("1"); }
+        function two() { addNum("2"); }
+        function three() { addNum("3"); }
+        function four() { addNum("4"); }
+        function five() { addNum("5"); }
+        function six() { addNum("6"); }
+        function seven() { addNum("7"); }
+        function eight() { addNum("8"); }
+        function nine() { addNum("9"); }
+        function plus() { addOper("+"); }
+        function minus() { addOper("-"); }
+        function multiply() { addOper("*"); }
+        function divide() { addOper("/"); }
+
+        function dote() {
+            const textField = document.getElementById('text');
+            const lastNumber = textField.value.split(/[^0-9.]+/).pop();
+            if (!lastNumber.includes(".")) {
+                textField.value += ".";
+            }
+        }
+
+        function Clear() {
+            document.getElementById('text').value = "0";
+        }
+
+        function equal() {
+            const textField = document.getElementById('text');
+            try {
+                const result = eval(textField.value.replace(/\s+/g, ""));
+                textField.value = result;
+            } catch {
+                textField.value = "Error";
+            }
+        }
+
+        function backspace() {
+            const textField = document.getElementById('text');
+            textField.value = textField.value.slice(0, -1) || "0";
+        }
+    </script>
+</body>
+</html>
