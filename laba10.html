@@ -1,0 +1,204 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueMagic</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: black;
+            justify-content: center;
+            display: flex;
+        }
+
+        #curtain {
+            transition: transform 0.2s ease;
+            position: fixed;
+            top: 0;
+            z-index: 10;
+        }
+
+        #curtain img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: fill;
+            z-index: 10;
+        }
+
+        .up_curtain {
+            transform: translateY(-5%);
+        }
+
+        .open_curtain {
+            transform: translateY(-100%);
+        }
+
+        #lamp {
+            background: transparent;
+            position: fixed;
+            top: 0;
+            z-index: 5;
+        }
+
+            #lamp img {
+                z-index: 5;
+                height: 40vh;
+            }
+
+        #light {
+            border-left: 50vh solid transparent;
+            border-right: 50vh solid transparent;
+            border-bottom: 90vh solid yellow;
+            position: fixed;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+            top: 2vh;
+            left: 10vw;
+            z-index: 9;
+            clip-path: polygon(0 10.5%, 0 100%, 100% 100%, 100% 10.5%);
+            pointer-events: none;
+        }
+
+        .hide {
+        }
+
+        #bird {
+            position: fixed;
+            top: 68vh;
+            left: 58vw;
+            z-index: 7;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.2s ease;
+            transform: translateY(75%);
+        }
+
+            #bird img {
+                width: 5vw;
+            }
+
+        #rabbit {
+            position: fixed;
+            top: 68vh;
+            left: 58vw;
+            z-index: 7;
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.2s ease;
+            transform: translateY(-45%);
+        }
+
+            #rabbit img {
+                width: 5vw;
+            }
+
+        #hat {
+            position: fixed;
+            top: 72vh;
+            left: 52vw;
+            z-index: 8;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+            #hat img {
+                width: 20vh;
+                transform: rotate(180deg);
+            }
+
+        #magician {
+            position: fixed;
+            top: 63vh;
+            left: 17vw;
+            z-index: 8;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+            #magician img {
+                width: 40vh;
+            }
+    </style>
+</head>
+<body>
+    <div id="lamp">
+        <img src="3.jpg" />
+    </div>
+    <div id="curtain">
+        <img src="1.jpg" />
+    </div>
+    <div id="light" class="hide"></div>
+    <div id="rabbit" class="hide">
+        <img src="Rabbit.png"/>
+    </div>
+    <div id="hat" class="hide">
+        <img src="Hat.png"/>
+    </div>
+    <div id="bird" class="hide">
+        <img src="Bird.png"/>
+    </div>
+    <div id="magician" class="hide">
+        <img src="2.jpg"/>
+    </div>
+    <script>
+        var curtain = document.getElementById("curtain");
+        var lamp = document.getElementById("lamp");
+        var light = document.getElementById("light");
+        var magician = document.getElementById("magician");
+        var rabbit = document.getElementById("rabbit");
+        var bird = document.getElementById("bird");
+        var hat = document.getElementById("hat");
+
+        curtain.addEventListener("mouseover", function () {
+            curtain.style.transition = "transform 0.2s ease";
+            curtain.classList.add("up_curtain");
+        });
+
+        curtain.addEventListener("mouseout", function () {
+            curtain.style.transition = "transform 0.2s ease";
+            curtain.classList.remove("up_curtain");
+        });
+
+        curtain.addEventListener("click", function () {
+            curtain.style.transition = "transform 1s ease";
+            curtain.classList.add("open_curtain");
+        });
+
+        lamp.addEventListener("click", function () {
+            if (light.classList.contains("hide")) {
+                light.classList.remove("hide");
+                light.style.opacity = "0.5";
+                magician.style.opacity = "1";
+                rabbit.style.opacity = "1";
+                bird.style.opacity = "1";
+                hat.style.opacity = "1";
+            }
+            else {
+                light.classList.add("hide");
+                light.style.opacity = "0";
+                magician.style.opacity = "0";
+                rabbit.style.opacity = "0";
+                bird.style.opacity = "0";
+                hat.style.opacity = "0";
+            }
+        });
+
+        rabbit.addEventListener("click", function () {
+            rabbit.style.transform = "translateY(52%)";
+            rabbit.style.transition = "transform 0.5s ease";
+            setTimeout(() => {
+                bird.style.transform = "translateY(-50%)";
+                bird.style.transition = "transform 0.5s ease, opacity 0.2s ease";
+            }, 500);
+        });
+
+        bird.addEventListener("click", function () {
+            bird.style.transform = "translateY(50%)";
+            bird.style.transition = "transform 0.5s ease";
+            setTimeout(() => {
+                rabbit.style.transform = "translateY(-50%)";
+                rabbit.style.transition = "transform 0.5s ease, opacity 0.2s ease";
+            }, 500);
+        });
+    </script>
+</body>
+</html>
