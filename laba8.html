@@ -1,0 +1,91 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>laba8</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .el {
+            display: flex;
+        }
+
+        button:active {
+            border-color: deepskyblue;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="el">
+            <input type="text" />
+            <input type="number" />
+            <button onclick="up(this)">↑</button>
+            <button onclick="down(this)">↓</button>
+            <button onclick="remove(this)">×</button>
+        </div>
+    </div>
+
+    <button onclick="add()">Добавить строку</button>
+    <br />
+    <button onclick="save()">Сохранить</button>
+    <div id="output"></div>
+
+    <script>
+      function up(button) {
+          var row = button.closest('div');
+          var previousRow = row.previousElementSibling;
+          if (previousRow) {
+              row.parentNode.insertBefore(row, previousRow);
+          }
+      }
+
+      function down(button) {
+          var row = button.closest('div');
+          var nextRow = row.nextElementSibling;
+          if (nextRow) {
+              row.parentNode.insertBefore(nextRow, row);
+          }
+      }
+
+      function remove(button) {
+          var row = button.closest('div');
+          row.remove();
+      }
+
+      function add() {
+          var container = document.getElementById('container');
+          var newRow = document.createElement('div');
+
+          newRow.classList.add("el");
+
+          newRow.innerHTML = `
+              <input type="text" />
+              <input type="number" />
+              <button onclick="up(this)">↑</button>
+              <button onclick="down(this)">↓</button>
+              <button onclick="remove(this)">×</button>
+          `;
+
+          container.appendChild(newRow);
+      }
+
+      function save() {
+          var container = document.getElementById('container');
+          var rows = container.querySelectorAll('div');
+          var data = {};
+
+          rows.forEach(row => {
+              var name = row.querySelector('input[type=text]').value;
+              var value = row.querySelector('input[type=number]').value;
+              data[name] = value;
+          });
+
+          document.getElementById('output').innerText = JSON.stringify(data);
+      }
+    </script>
+</body>
+</html>
