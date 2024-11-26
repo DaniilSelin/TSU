@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrueMagic</title>
+    <title>Попровленная магия</title>
     <style>
         body {
             margin: 0;
@@ -19,12 +19,12 @@
             z-index: 10;
         }
 
-        #curtain img {
-            width: 100vw;
-            height: 100vh;
-            object-fit: fill;
-            z-index: 10;
-        }
+            #curtain img {
+                width: 100vw;
+                height: 100vh;
+                object-fit: fill;
+                z-index: 10;
+            }
 
         .up_curtain {
             transform: translateY(-5%);
@@ -35,7 +35,6 @@
         }
 
         #lamp {
-            background: transparent;
             position: fixed;
             top: 0;
             z-index: 5;
@@ -54,7 +53,7 @@
             opacity: 0;
             transition: opacity 0.2s ease;
             top: 2vh;
-            left: 10vw;
+            left: 27.5vw;
             z-index: 9;
             clip-path: polygon(0 10.5%, 0 100%, 100% 100%, 100% 10.5%);
             pointer-events: none;
@@ -65,30 +64,30 @@
 
         #bird {
             position: fixed;
-            top: 68vh;
-            left: 58vw;
+            top: 67vh;
+            left: 55vw;
             z-index: 7;
             opacity: 0;
             transition: transform 0.5s ease, opacity 0.2s ease;
-            transform: translateY(75%);
+            transform: translateY(50%);
         }
 
             #bird img {
-                width: 5vw;
+                width: 3vw;
             }
 
         #rabbit {
             position: fixed;
-            top: 68vh;
-            left: 58vw;
+            top: 67vh;
+            left: 54.5vw;
             z-index: 7;
             opacity: 0;
             transition: transform 0.5s ease, opacity 0.2s ease;
-            transform: translateY(-45%);
+            transform: translateY(-50%);
         }
 
             #rabbit img {
-                width: 5vw;
+                width: 4vw;
             }
 
         #hat {
@@ -108,7 +107,7 @@
         #magician {
             position: fixed;
             top: 63vh;
-            left: 17vw;
+            left: 32vw;
             z-index: 8;
             opacity: 0;
             transition: opacity 0.2s ease;
@@ -140,7 +139,7 @@
         <img src="2.jpg"/>
     </div>
     <script>
-        var curtain = document.getElementById("curtain");
+                var curtain = document.getElementById("curtain");
         var lamp = document.getElementById("lamp");
         var light = document.getElementById("light");
         var magician = document.getElementById("magician");
