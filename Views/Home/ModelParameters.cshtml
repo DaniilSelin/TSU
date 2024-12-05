@@ -1,0 +1,31 @@
+﻿@model laba12.Models.Numbers
+@{
+    ViewData["Title"] = "ModelBindingInParameters - Backend2";
+}
+<div class="text-left">
+    <h1 class="display-6">ModelBindingInParameters</h1>
+    @using (Html.BeginForm("Result2","Home",FormMethod.Post))
+    {
+        @Html.TextBox("num1", "", new { Type = "number" })<br />
+        @Html.DropDownList("operation", new SelectList(new[]
+            {
+                new { Value = "add", Text = "+" },
+                new { Value = "sub", Text = "-" },
+                new { Value = "mult", Text = "*" },
+                new { Value = "div", Text = "/" }
+            }, "Value", "Text"))<br />
+        @Html.TextBox("num2", "", new { Type = "number" })<br />
+        <input type="submit" value="Submit" />
+    }
+    <!--<form method="post" asp-action="Result2">
+        <input type="number" name="num1" /><br />
+        <select name="operation">
+            <option value="add">+</option>
+            <option value="sub">-</option>
+            <option value="mult">*</option>
+            <option value="div">/</option>
+        </select><br />
+        <input type="number" name="num2" /><br />
+        <input type="submit" value="Submit" />
+    </form>-->
+</div>

@@ -1,0 +1,26 @@
+﻿@model laba12.Models.Numbers
+@{
+    ViewData["Title"] = "ModelBindingInSepareteModel - Backend2";
+}
+<div class="text-left">
+    <h1 class="display-6">ModelBindingInSepareteModel</h1>
+    <form asp-action="ModelSeparate" asp-controller="Home" asp-antiforgery="true">
+        <div>
+            <input type="number" asp-for="num1" /><br />
+            <select asp-for="operation" asp-items="ViewBag.Operations"></select><br />
+            <input type="number" asp-for="num2" /><br />
+            <input type="submit" value="Submit" />
+        </div>
+    </form>
+    <!--<form method="post" asp-action="ModelSeparate">
+        <input type="number" name="num1"/><br />
+        <select name="operation">
+            <option value="add">+</option>
+            <option value="sub">-</option>
+            <option value="mult">*</option>
+            <option value="div">/</option>
+        </select><br />
+        <input type="number" name="num2"/><br />
+        <input type="submit" value="Calculate" />
+    </form>-->
+</div>
