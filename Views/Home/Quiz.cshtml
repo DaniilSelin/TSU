@@ -1,0 +1,38 @@
+﻿@model laba13.Models.Numbers
+@{
+    ViewData["Title"] = "HelloQuiz - Backend3";
+    var count_answers = (ViewBag.AnswerList as List<Numbers>)?.Count ?? 0;
+    var answerList = ViewBag.AnswerList as List<Numbers>;
+}
+<div class="text-left">
+    <h1 class="display-6">Quiz</h1>
+    @if(!ViewBag.Result){
+        <div>@Model.num1 @Model.operation @Model.num2 =</div>
+        <form method="post" asp-action="Quiz">
+            <input type="hidden" asp-for="num1" />
+            <input type="hidden" asp-for="num2" />
+            <input type="hidden" asp-for="result" />
+            <input type="hidden" asp-for="operation" />
+            <input type="number" class="elements mar_down" name="enter"/><br />
+            <button class="mar_right elements" asp-action="Quiz" name="submitButton" value="Next">Next</button>
+            <button class="blue_style elements" asp-action="Quiz" name="submitButton" value="Finish">Finish</button>
+        </form>
+    }
+    else
+    {
+        @if (answerList != null && answerList.Count > 0)
+        {
+            <h1 class="display-6">Right answers @ViewBag.CorrectAnswers out @count_answers</h1>
+            <ol>
+                @foreach (var answer in answerList)
+                {
+                    <li>@answer.num1 @answer.operation @answer.num2 = @answer.enter</li>
+                }
+            </ol>
+        }
+        else
+        {
+            <p>No answers :(</p>
+        }
+    }
+</div>

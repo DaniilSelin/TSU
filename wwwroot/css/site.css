@@ -1,0 +1,44 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+.container-fluid {
+    margin-left: 110px;
+}
+
+.list {
+    padding-left: 10px;
+}
+
+.elements {
+    border-radius: 4px;
+    border-color: #ccc;
+}
+
+.mar_down {
+    margin-bottom: 10px;
+}
+
+.mar_right {
+    margin-right: 2px;
+}
+
+.blue_style {
+    background-color: #337ab7;
+    color: white;
+}
